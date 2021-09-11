@@ -1,4 +1,4 @@
-# Budget Manager Demo
+Budget Manager Demo
 =====
 
 Project is a demo for budget manager application. Currently it consists of 3 endpoints and supports behaviour
