@@ -2,6 +2,7 @@ package com.example.budgetmanager.controller;
 
 import com.example.budgetmanager.model.entities.Register;
 import com.example.budgetmanager.service.RegisterService;
+import com.example.budgetmanager.utils.Utils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,7 @@ public class RegisterController {
     @PutMapping(path = "/recharge/{registerName}/{amount}")
     @ResponseBody
     public ResponseEntity<Register> rechargeRegister(@PathVariable String registerName, @PathVariable String amount) {
-        var updatedRegister = registerService.rechargeRegister(registerName, amount);
+        var updatedRegister = registerService.rechargeRegister(Utils.fromSnakeCase(registerName), amount);
         return ResponseEntity.ok().body(updatedRegister);
     }
 
@@ -28,7 +29,7 @@ public class RegisterController {
     public HttpStatus transferFunds(@PathVariable String originRegister,
                                     @PathVariable String targetRegister,
                                     @PathVariable String amount) {
-        registerService.transferFunds(originRegister, targetRegister, amount);
+        registerService.transferFunds(Utils.fromSnakeCase(originRegister), Utils.fromSnakeCase(targetRegister), amount);
         return HttpStatus.OK;
     }
 

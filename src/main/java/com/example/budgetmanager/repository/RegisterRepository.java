@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface RegisterRepository extends JpaRepository<Register, Integer> {
-    Optional<Register> findFirstByName(String name);
+    Optional<Register> findFirstByNameOrderByTimestampDesc(String name);
 }

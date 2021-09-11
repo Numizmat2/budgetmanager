@@ -8,6 +8,17 @@ CREATE TABLE register (
   timestamp TIMESTAMP(3) NOT NULL
 );
 
+CREATE TABLE transfer (
+  id BIGINT AUTO_INCREMENT  PRIMARY KEY,
+  origin_register_id VARCHAR(100) NOT NULL,
+  target_register_id VARCHAR(30) NOT NULL,
+  timestamp TIMESTAMP(3) NOT NULL,
+  amount VARCHAR(30) NOT NULL,
+  archived BIT NOT NULL DEFAULT 0,
+  FOREIGN KEY (origin_register_id) REFERENCES register(id),
+  FOREIGN KEY (target_register_id) REFERENCES register(id)
+);
+
 ALTER TABLE register ADD CONSTRAINT name_timestamp_unique UNIQUE (name, timestamp);
 
 INSERT INTO register (name, value, timestamp) VALUES

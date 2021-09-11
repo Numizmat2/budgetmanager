@@ -15,4 +15,8 @@ public class Utils {
 
         return converted;
     }
+
+    public static String fromSnakeCase(String stringValue) {
+        return stringValue.replace("_", " ");
+    }
 }

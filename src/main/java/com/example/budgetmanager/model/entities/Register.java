@@ -22,6 +22,12 @@ public class Register {
         this.timestamp = new Date();
     }
 
+    public Register(String name, String value, Date timestamp) {
+        this.name = name;
+        this.value = value;
+        this.timestamp = timestamp;
+    }
+
     public Integer getId() {
         return id;
     }
