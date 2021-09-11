@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 @CrossOrigin
 @RequestMapping(path = "/api")
@@ -35,7 +37,7 @@ public class RegisterController {
 
     @GetMapping(path = "/currentBalance")
     @ResponseBody
-    public ResponseEntity<String> getCurrentBalance() {
+    public ResponseEntity<Map<String, Double>> getCurrentBalance() {
         var currentBalance = registerService.getCurrentBalance();
         return ResponseEntity.ok().body(currentBalance);
     }
