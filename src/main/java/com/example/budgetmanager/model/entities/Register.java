@@ -30,11 +30,13 @@ public class Register {
         return name;
     }
 
-    public Integer getValue() {
-        return Integer.valueOf(value);
+    public Double getValue() {
+        return Double.valueOf(value);
     }
 
     public Date getTimestamp() {
         return timestamp;
     }
+
+
 }
